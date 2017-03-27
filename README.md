@@ -55,6 +55,19 @@ override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: .UIKeyboardWillHide, object: nil)
     }
+    
+    step 5 : set Notification in viewdidload setNotificationKeyboard
+
+override func viewWillAppear(_ animated: Bool) {
+        // call method for keyboard notification
+        self.setNotificationKeyboard()
+    }
+
+    // Notification when keyboard show
+    func setNotificationKeyboard ()  {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: .UIKeyboardWillHide, object: nil)
+    }
 step 6 : two method for hide and unhide
 
 func keyboardWasShown(notification: NSNotification)
@@ -81,4 +94,4 @@ func keyboardWasShown(notification: NSNotification)
         self.scrollView.scrollIndicatorInsets = contentInsets
         self.view.endEditing(true)
     }
-k
+
